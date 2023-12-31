@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxtuil2ooqai8"]
+
+[ext_resource type="Texture2D" uid="uid://ck45grivxan7d" path="res://texture/hamster.png" id="1_7fgfg"]
+[ext_resource type="Script" path="res://script/game/Player.cs" id="2_rjj18"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_45et3"]
+font_size = 32
+
+[node name="Hamster" type="Sprite2D"]
+z_as_relative = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_7fgfg")
+script = ExtResource("2_rjj18")
+speed = 200.0
+
+[node name="Name" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -228.0
+offset_right = -108.0
+offset_bottom = -205.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_45et3")
+horizontal_alignment = 1
+vertical_alignment = 1

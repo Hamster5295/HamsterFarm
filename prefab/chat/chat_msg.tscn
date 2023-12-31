@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bug73d8ngyynt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_20u3u"]
+font_size = 24
+
+[node name="ChatMsg" type="Label"]
+size_flags_horizontal = 3
+label_settings = SubResource("LabelSettings_20u3u")
+autowrap_mode = 3

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="PlantConfig" load_steps=7 format=3 uid="uid://b22v1mdcmpfbc"]
+
+[ext_resource type="Texture2D" uid="uid://qwx61xlko5ym" path="res://texture/plant/apple/apple_flower.png" id="1_wqy75"]
+[ext_resource type="Texture2D" uid="uid://clf1dm423rv1l" path="res://texture/plant/apple/apple_fruit.png" id="2_xfunj"]
+[ext_resource type="Texture2D" uid="uid://dl0hqc7ht0eys" path="res://texture/plant/apple/apple.png" id="3_1aixk"]
+[ext_resource type="Texture2D" uid="uid://d1epnggr5x2jn" path="res://texture/plant/apple/apple_plant.png" id="4_kcb0a"]
+[ext_resource type="Script" path="res://script/game/plant/PlantConfig.cs" id="5_4jr1y"]
+[ext_resource type="Texture2D" uid="uid://vjmuswxj2hqi" path="res://texture/plant/seed.png" id="6_fbwsg"]
+
+[resource]
+script = ExtResource("5_4jr1y")
+plantName = "苹果"
+icon = ExtResource("3_1aixk")
+growTime = 60.0
+cost = 50
+earn = 90
+seed = ExtResource("6_fbwsg")
+plant = ExtResource("4_kcb0a")
+flower = ExtResource("1_wqy75")
+fruit = ExtResource("2_xfunj")

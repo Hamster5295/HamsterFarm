@@ -1,0 +1,127 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbqvnd20vnkc6"]
+
+[ext_resource type="Script" path="res://script/multiplayer/MultiplayerInitializer.cs" id="1_dh72s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wuyh3"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_rpor4"]
+font_size = 24
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MultiplayerIniter" type="Node" parent="." node_paths=PackedStringArray("inputIp", "inputPort", "inputUserName", "txtHint")]
+script = ExtResource("1_dh72s")
+gameScenePath = "res://scene/game.tscn"
+inputIp = NodePath("../Vbox/IP/TextEdit")
+inputPort = NodePath("../Vbox/Port/TextEdit")
+inputUserName = NodePath("../Vbox/UserName/TextEdit")
+txtHint = NodePath("../Vbox/Hint")
+
+[node name="Vbox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -44.0
+offset_right = 128.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="Vbox"]
+layout_mode = 2
+text = "仓鼠农场"
+label_settings = SubResource("LabelSettings_wuyh3")
+
+[node name="IP" type="HBoxContainer" parent="Vbox"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Vbox/IP"]
+layout_mode = 2
+text = "地址"
+
+[node name="TextEdit" type="LineEdit" parent="Vbox/IP"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "222.20.101.182"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+
+[node name="Port" type="HBoxContainer" parent="Vbox"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Vbox/Port"]
+layout_mode = 2
+text = "端口"
+
+[node name="TextEdit" type="LineEdit" parent="Vbox/Port"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "8081"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+
+[node name="Space" type="Control" parent="Vbox"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="UserName" type="HBoxContainer" parent="Vbox"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Vbox/UserName"]
+layout_mode = 2
+text = "用户名"
+
+[node name="TextEdit" type="LineEdit" parent="Vbox/UserName"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_length = 10
+context_menu_enabled = false
+shortcut_keys_enabled = false
+
+[node name="BtnServer" type="Button" parent="Vbox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "创建服务器"
+
+[node name="BtnClient" type="Button" parent="Vbox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "加入服务器"
+
+[node name="Hint" type="Label" parent="Vbox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -44.5
+offset_top = -75.0
+offset_right = 44.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "WASD 移动
+回车 说话
+E 种植&收割"
+label_settings = SubResource("LabelSettings_rpor4")
+
+[connection signal="pressed" from="Vbox/BtnServer" to="MultiplayerIniter" method="CreateServer"]
+[connection signal="pressed" from="Vbox/BtnClient" to="MultiplayerIniter" method="CreateClient"]

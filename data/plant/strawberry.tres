@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="PlantConfig" load_steps=7 format=3 uid="uid://d0x0priejlh7p"]
+
+[ext_resource type="Script" path="res://script/game/plant/PlantConfig.cs" id="1_bhu3x"]
+[ext_resource type="Texture2D" uid="uid://101do0b8fyo0" path="res://texture/plant/strawberry/strawberry.png" id="1_d8q3t"]
+[ext_resource type="Texture2D" uid="uid://uyqkt6433thv" path="res://texture/plant/strawberry/strawberry_flower.png" id="1_ttmwg"]
+[ext_resource type="Texture2D" uid="uid://ciof0yt0wn8wn" path="res://texture/plant/strawberry/strawberry_fruit.png" id="2_lvgyp"]
+[ext_resource type="Texture2D" uid="uid://b338cjpphf65d" path="res://texture/plant/strawberry/strawberry_plant.png" id="4_nmxpr"]
+[ext_resource type="Texture2D" uid="uid://vjmuswxj2hqi" path="res://texture/plant/seed.png" id="6_cycs5"]
+
+[resource]
+script = ExtResource("1_bhu3x")
+plantName = "草莓"
+icon = ExtResource("1_d8q3t")
+growTime = 10.0
+cost = 10
+earn = 15
+seed = ExtResource("6_cycs5")
+plant = ExtResource("4_nmxpr")
+flower = ExtResource("1_ttmwg")
+fruit = ExtResource("2_lvgyp")

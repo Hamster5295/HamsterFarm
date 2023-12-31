@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwcy8ihgjmvh4"]
+
+[ext_resource type="Script" path="res://script/game/plant/ui/PlantEntry.cs" id="1_pl25k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xuftg"]
+font_size = 24
+
+[node name="PlantEntry" type="PanelContainer"]
+custom_minimum_size = Vector2(310, 0)
+script = ExtResource("1_pl25k")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="Space" type="Control" parent="VBox"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="VBox"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="VBox"]
+layout_mode = 2
+text = "草莓"
+label_settings = SubResource("LabelSettings_xuftg")
+horizontal_alignment = 1
+
+[node name="GrowTime" type="Label" parent="VBox"]
+layout_mode = 2
+text = "生长时间：30s"
+horizontal_alignment = 1
+
+[node name="Cost" type="Label" parent="VBox"]
+layout_mode = 2
+text = "价格：20$"
+horizontal_alignment = 1
+
+[node name="Earn" type="Label" parent="VBox"]
+layout_mode = 2
+text = "出售：20$"
+horizontal_alignment = 1
+
+[node name="Space2" type="Control" parent="VBox"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="PlantConfig" load_steps=7 format=3 uid="uid://bple0nardghug"]
+
+[ext_resource type="Texture2D" uid="uid://e2x5fqoyctos" path="res://texture/plant/melon/melon_flower.png" id="1_k2h16"]
+[ext_resource type="Texture2D" uid="uid://7kv46m7aj8wi" path="res://texture/plant/melon/melon_fruit.png" id="2_10lxe"]
+[ext_resource type="Texture2D" uid="uid://0tpo6sjy8sh3" path="res://texture/plant/melon/melon.png" id="3_46wl7"]
+[ext_resource type="Texture2D" uid="uid://cerncyx42clek" path="res://texture/plant/melon/melon_plant.png" id="4_fa7pv"]
+[ext_resource type="Script" path="res://script/game/plant/PlantConfig.cs" id="5_o7x3u"]
+[ext_resource type="Texture2D" uid="uid://vjmuswxj2hqi" path="res://texture/plant/seed.png" id="6_an4vf"]
+
+[resource]
+script = ExtResource("5_o7x3u")
+plantName = "西瓜"
+icon = ExtResource("3_46wl7")
+growTime = 90.0
+cost = 80
+earn = 160
+seed = ExtResource("6_an4vf")
+plant = ExtResource("4_fa7pv")
+flower = ExtResource("1_k2h16")
+fruit = ExtResource("2_10lxe")

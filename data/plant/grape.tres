@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="PlantConfig" load_steps=7 format=3 uid="uid://3f1a1lt1754f"]
+
+[ext_resource type="Texture2D" uid="uid://dpokydu5ys5a" path="res://texture/plant/grape/grape_flower.png" id="1_5p8y5"]
+[ext_resource type="Texture2D" uid="uid://bwk83mt7eas1g" path="res://texture/plant/grape/grape_fruit.png" id="2_mp4cl"]
+[ext_resource type="Texture2D" uid="uid://c5svbt0105jvf" path="res://texture/plant/grape/grape.png" id="3_uqg4h"]
+[ext_resource type="Texture2D" uid="uid://dnmwhq8c1qlco" path="res://texture/plant/grape/grape_plant.png" id="4_dssic"]
+[ext_resource type="Script" path="res://script/game/plant/PlantConfig.cs" id="5_tjnqs"]
+[ext_resource type="Texture2D" uid="uid://vjmuswxj2hqi" path="res://texture/plant/seed.png" id="6_boc6d"]
+
+[resource]
+script = ExtResource("5_tjnqs")
+plantName = "葡萄"
+icon = ExtResource("3_uqg4h")
+growTime = 30.0
+cost = 25
+earn = 45
+seed = ExtResource("6_boc6d")
+plant = ExtResource("4_dssic")
+flower = ExtResource("1_5p8y5")
+fruit = ExtResource("2_mp4cl")

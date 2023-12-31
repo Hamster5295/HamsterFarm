@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://xpfgad047i67"]
+
+[ext_resource type="Script" path="res://script/game/plant/Plant.cs" id="1_u2dui"]
+[ext_resource type="Texture2D" uid="uid://cqqtath3vjp2c" path="res://texture/plant/soil.png" id="2_ufage"]
+
+[node name="Plant" type="Sprite2D"]
+z_index = 10
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_u2dui")
+
+[node name="Soil" type="Sprite2D" parent="."]
+show_behind_parent = true
+z_index = -5
+texture = ExtResource("2_ufage")

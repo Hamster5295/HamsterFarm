@@ -1,0 +1,166 @@
+[gd_scene load_steps=21 format=3 uid="uid://dt58eh1oi6551"]
+
+[ext_resource type="Script" path="res://script/multiplayer/Server.cs" id="1_b1y7x"]
+[ext_resource type="Script" path="res://script/game/FollowCamera.cs" id="3_b4pk5"]
+[ext_resource type="PackedScene" uid="uid://bxtuil2ooqai8" path="res://prefab/hamster.tscn" id="3_b6gi3"]
+[ext_resource type="Texture2D" uid="uid://y1hiqb88bp4t" path="res://texture/grassland.png" id="3_bxa0r"]
+[ext_resource type="Script" path="res://script/game/plant/PlantManager.cs" id="3_cji07"]
+[ext_resource type="Script" path="res://script/game/chat/Chatbox.cs" id="3_fl517"]
+[ext_resource type="PackedScene" uid="uid://xpfgad047i67" path="res://prefab/plant/plant.tscn" id="4_81ari"]
+[ext_resource type="PackedScene" uid="uid://bug73d8ngyynt" path="res://prefab/chat/chat_msg.tscn" id="4_x4n6s"]
+[ext_resource type="Resource" uid="uid://d0x0priejlh7p" path="res://data/plant/strawberry.tres" id="4_y0pmn"]
+[ext_resource type="Resource" uid="uid://3f1a1lt1754f" path="res://data/plant/grape.tres" id="5_53fv0"]
+[ext_resource type="Script" path="res://script/multiplayer/Toast.cs" id="5_tu3xo"]
+[ext_resource type="PackedScene" uid="uid://qefkqyo1peqs" path="res://prefab/toast.tscn" id="6_3k827"]
+[ext_resource type="Script" path="res://script/game/plant/ui/PlantMenu.cs" id="6_d0xd6"]
+[ext_resource type="PackedScene" uid="uid://bwcy8ihgjmvh4" path="res://prefab/plant/plant_entry.tscn" id="6_pl827"]
+[ext_resource type="Resource" uid="uid://b22v1mdcmpfbc" path="res://data/plant/apple.tres" id="6_ue1r0"]
+[ext_resource type="Resource" uid="uid://bple0nardghug" path="res://data/plant/melon.tres" id="7_nffk4"]
+[ext_resource type="Texture2D" uid="uid://buja4grfdgwx7" path="res://texture/money.png" id="8_634mx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afxsq"]
+bg_color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y40wn"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_v3xfk"]
+font_size = 32
+
+[node name="Game" type="Node2D"]
+
+[node name="Server" type="Node" parent="."]
+script = ExtResource("1_b1y7x")
+menuPath = "res://scene/main_menu.tscn"
+player = ExtResource("3_b6gi3")
+
+[node name="PlantManager" type="Node" parent="Server" node_paths=PackedStringArray("plantMenu")]
+script = ExtResource("3_cji07")
+configs = Array[Object]([ExtResource("4_y0pmn"), ExtResource("5_53fv0"), ExtResource("6_ue1r0"), ExtResource("7_nffk4")])
+plantMenu = NodePath("../../UILayer/PlantMenu")
+plant = ExtResource("4_81ari")
+
+[node name="Toast" type="Node" parent="Server"]
+script = ExtResource("5_tu3xo")
+toast = ExtResource("6_3k827")
+offset = Vector2(0, -150)
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="Chatbox" type="ColorRect" parent="UILayer"]
+anchors_preset = -1
+anchor_top = 0.35
+anchor_bottom = 1.0
+offset_right = 420.0
+grow_vertical = 0
+color = Color(0, 0, 0, 0.392157)
+script = ExtResource("3_fl517")
+chatMsg = ExtResource("4_x4n6s")
+
+[node name="Scroll" type="ScrollContainer" parent="UILayer/Chatbox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="VBox" type="VBoxContainer" parent="UILayer/Chatbox/Scroll"]
+layout_mode = 2
+alignment = 2
+
+[node name="TextBox" type="LineEdit" parent="UILayer/Chatbox"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxFlat_afxsq")
+placeholder_text = "输入聊天文字"
+context_menu_enabled = false
+
+[node name="PlantMenu" type="ColorRect" parent="UILayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -300.0
+offset_right = 480.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+script = ExtResource("6_d0xd6")
+plantEntry = ExtResource("6_pl827")
+
+[node name="Title" type="Label" parent="UILayer/PlantMenu"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "种植"
+label_settings = SubResource("LabelSettings_y40wn")
+horizontal_alignment = 1
+
+[node name="MoneyIcon" type="TextureRect" parent="UILayer/PlantMenu"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 45.0
+texture = ExtResource("8_634mx")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Money" type="Label" parent="UILayer/PlantMenu"]
+layout_mode = 1
+offset_left = 50.0
+offset_right = 148.0
+offset_bottom = 45.0
+text = "0"
+label_settings = SubResource("LabelSettings_v3xfk")
+
+[node name="BtnClose" type="Button" parent="UILayer/PlantMenu"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -57.0
+offset_bottom = 45.0
+grow_horizontal = 0
+text = "  关闭  "
+
+[node name="Scroll" type="ScrollContainer" parent="UILayer/PlantMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="PlantList" type="GridContainer" parent="UILayer/PlantMenu/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+columns = 3
+
+[node name="Cam" type="Camera2D" parent="."]
+script = ExtResource("3_b4pk5")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -10
+y_sort_enabled = true
+texture = ExtResource("3_bxa0r")
+
+[connection signal="pressed" from="UILayer/PlantMenu/BtnClose" to="UILayer/PlantMenu" method="Disappear"]
